@@ -21,4 +21,6 @@ class Command(BaseCommand):
             User.objects.create_user(username=us['username'],
                                      first_name=us['first_name'],
                                      last_name=us['last_name'],
-                                     email=us['email'],)
+                                     email=us['email'],
+                                     password=us['password'],
+                                     is_staff=us['is_staff'])

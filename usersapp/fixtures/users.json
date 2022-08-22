@@ -1,1 +1,128 @@
-[{"model": "usersapp.user", "pk": 1, "fields": {"password": "", "last_login": null, "is_superuser": false, "username": "user1", "first_name": "Иван", "last_name": "Иванов", "is_staff": false, "is_active": true, "date_joined": "2022-08-05T17:06:51.662Z", "email": "ivan@mail.ru", "groups": [], "user_permissions": []}}, {"model": "usersapp.user", "pk": 2, "fields": {"password": "", "last_login": null, "is_superuser": false, "username": "user2", "first_name": "Сергей", "last_name": "Сергеев", "is_staff": false, "is_active": true, "date_joined": "2022-08-05T17:07:13.637Z", "email": "Sergey@mail.ru", "groups": [], "user_permissions": []}}, {"model": "usersapp.user", "pk": 3, "fields": {"password": "", "last_login": null, "is_superuser": false, "username": "user3", "first_name": "Петр", "last_name": "Петров", "is_staff": false, "is_active": true, "date_joined": "2022-08-05T17:07:33.352Z", "email": "Petr@mail.ru", "groups": [], "user_permissions": []}}]
+[
+  {
+    "model": "usersapp.user",
+    "pk": 1,
+    "fields": {
+      "password": "user1123456",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user1",
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-05T17:06:51.662Z",
+      "email": "ivan@mail.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "usersapp.user",
+    "pk": 2,
+    "fields": {
+      "password": "user2123456",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user2",
+      "first_name": "Сергей",
+      "last_name": "Сергеев",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-05T17:07:13.637Z",
+      "email": "Sergey@mail.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "usersapp.user",
+    "pk": 3,
+    "fields": {
+      "password": "user3123456",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user3",
+      "first_name": "Петр",
+      "last_name": "Петров",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-08-05T17:07:33.352Z",
+      "email": "Petr@mail.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+    {
+    "model": "usersapp.user",
+    "pk": 4,
+    "fields": {
+      "password": "1",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Staff1",
+      "first_name": "Леопольд",
+      "last_name": "Сточ",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-08-05T17:06:51.662Z",
+      "email": "Staff1@mail.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+    {
+    "model": "usersapp.user",
+    "pk": 5,
+    "fields": {
+      "password": "1",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Staff2",
+      "first_name": "Кенни",
+      "last_name": "Маккормик",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-08-05T17:06:51.662Z",
+      "email": "Staff2@mail.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+    {
+    "model": "usersapp.user",
+    "pk": 6,
+    "fields": {
+      "password": "1",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Staff3",
+      "first_name": "Кайл",
+      "last_name": "Брофловски",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-08-05T17:06:51.662Z",
+      "email": "Staff3@mail.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+    {
+    "model": "usersapp.user",
+    "pk": 7,
+    "fields": {
+      "password": "1",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Staff4",
+      "first_name": "Картман",
+      "last_name": "Жиртрест",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-08-05T17:06:51.662Z",
+      "email": "Staff4@mail.ru",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'django_filters',
     'usersapp',
     'corsheaders',
-    'todoapp'
+    'todoapp',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -137,8 +138,10 @@ STATIC_URL = '/static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+AUTH_USER_MODEL = 'usersapp.User'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#from rest_framework.permissions import IsAuthenticated
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
@@ -147,6 +150,13 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     #'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     #'PAGE_SIZE': 100
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+    ]
 }
 
-AUTH_USER_MODEL = 'usersapp.User'
+
