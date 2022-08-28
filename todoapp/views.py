@@ -32,8 +32,11 @@ class ToDoModelViewSet(ModelViewSet):
     #pagination_class = ToDoLimitOffsetPagination
     filterset_fields = ['project']
 
+
+'''
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         instance.active = False
         instance.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
+'''

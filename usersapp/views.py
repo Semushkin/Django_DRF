@@ -6,9 +6,11 @@ from .serializers import UserModelSerializer
 from rest_framework.permissions import BasePermission
 
 
+'''
 class SuperUserOnly(BasePermission):
     def has_permission(self, request, view):
         return request.user.is_superuser
+'''
 
 
 class UserModelViewSet(ModelViewSet):
