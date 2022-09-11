@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import NotFound404 from "./components/NotFound404";
 import ProjectsUser from "./components/ProjectsUser";
 import LoginForm from "./components/Auth";
+import ProjectForm from "./components/ProjectForm";
+import TodoForm from "./components/TodoForm";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import {BrowserRouter, Route, Link, Switch, Redirect} from "react-router-dom";
@@ -24,6 +26,49 @@ class App extends React.Component{
             'todos': [],
             'token': '',
         }
+    }
+
+    create_todo(text, project, user)
+    {
+        const headers = this.get_headers()
+        const data = {text: text, project: project, user: user}
+        console.log(data)
+        axios.post(`http://127.0.0.1:8000/api/todo/`,data, {headers}).then(response=>{
+            this.load_data()
+        }).catch(error => {
+            console.log(error)
+            this.setState({todos:[]})})
+    }
+
+    delete_todo(id)
+    {
+        const headers = this.get_headers()
+        axios.delete(`http://127.0.0.1:8000/api/todo/${id}`, {headers}).then(response=>{
+            this.load_data()
+        }).catch(error => {
+            console.log(error)
+            this.setState({todos:[]})})
+    }
+
+    create_project(name, link, users)
+    {
+        const headers = this.get_headers()
+        const data = {name: name, link: link, users: users}
+        axios.post(`http://127.0.0.1:8000/api/projects/`,data, {headers}).then(response=>{
+            this.load_data()
+        }).catch(error => {
+            console.log(error)
+            this.setState({projects:[]})})
+    }
+
+    delete_project(id)
+    {
+        const headers = this.get_headers()
+        axios.delete(`http://127.0.0.1:8000/api/projects/${id}`, {headers}).then(response=>{
+            this.load_data()
+        }).catch(error => {
+            console.log(error)
+            this.setState({projects:[]})})
     }
 
     logout(){
@@ -107,7 +152,7 @@ class App extends React.Component{
                 <BrowserRouter>
                     <nav>
                         <ul>
-                            <li><Link to='/'>Author</Link></li>
+                            <li><Link to='/'>Users</Link></li>
                             <li><Link to='/projects'>Projects</Link></li>
                             <li><Link to='/todos'>Todos</Link></li>
                             <li>
@@ -117,8 +162,10 @@ class App extends React.Component{
                     </nav>
                     <Switch>
                         <Route exact path='/' component={() => <UserList users={this.state.users}/>} />
-                        <Route exact path='/projects' component={() => <ProjectList projects={this.state.projects}/>} />
-                        <Route exact path='/todos' component={() => <TodoList todos={this.state.todos}/>} />
+                        <Route exact path='/projects' component={() => <ProjectList projects={this.state.projects} delete_project={(id)=>this.delete_project(id)}/>} />
+                        <Route exact path='/projects/create' component={() => <ProjectForm users={this.state.users} create_project={(name, link, users)=>this.create_project(name, link, users)}/>} />
+                        <Route exact path='/todos' component={() => <TodoList todos={this.state.todos} delete_todo={(id)=>this.delete_todo(id)} />} />
+                        <Route exact path='/todos/create' component={() => <TodoForm users={this.state.users} projects={this.state.projects} create_todo={(text, project, user)=>this.create_todo(text, project, user)}/>} />
                         <Route exact path='/login' component={() => <LoginForm get_token={(username, password) => this.get_token(username, password)}/>} />
                         <Route path='/user/:id'>
                             <ProjectsUser projects={this.state.projects}/>
